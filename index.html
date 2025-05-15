@@ -1,0 +1,121 @@
+<meta charset="UTF-8">
+
+<script src="./jquery-3.7.1.js" sourcemappingurl="./jquery-3.7.1.min.map"></script>
+
+<style>
+#taste{
+	width: 20px;
+	height: 20px;
+	float: left;
+	border: 1px solid lightblue;
+	border-radius: 3px;
+	font-size: 12px;
+	text-align: center;
+}
+#tasten_div{
+
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  
+ }
+</style>
+
+<form><input type="text" id="text_input"> <input type="reset" value="X"></form>
+<div id="tasten_div">
+	<div id="taste" class="push_taste">1</div>
+	<div id="taste" class="push_taste">2</div>
+	<div id="taste" class="push_taste">3</div>
+	<div id="taste" class="push_taste">4</div>
+	<div id="taste" class="push_taste">5</div>
+	<div id="taste" class="push_taste">6</div>
+	<div id="taste" class="push_taste">7</div>
+	<div id="taste" class="push_taste">8</div>
+	<div id="taste" class="push_taste">9</div>
+	<div id="taste" class="push_taste">0</div>
+	
+	<br clear="both"/>
+	
+	<div id="taste" class="push_taste">q</div>
+	<div id="taste" class="push_taste">w</div>
+	<div id="taste" class="push_taste">e</div>
+	<div id="taste" class="push_taste">r</div>
+	<div id="taste" class="push_taste">t</div>
+	<div id="taste" class="push_taste">z</div>
+	<div id="taste" class="push_taste">u</div>
+	<div id="taste" class="push_taste">i</div>
+	<div id="taste" class="push_taste">o</div>
+	<div id="taste" class="push_taste">p</div>
+	<div id="taste" class="push_taste">ü</div>
+	
+	<br clear="both"/>
+	
+	<div id="taste" class="push_taste">a</div>
+	<div id="taste" class="push_taste">s</div>
+	<div id="taste" class="push_taste">d</div>
+	<div id="taste" class="push_taste">f</div>
+	<div id="taste" class="push_taste">g</div>
+	<div id="taste" class="push_taste">h</div>
+	<div id="taste" class="push_taste">j</div>
+	<div id="taste" class="push_taste">k</div>
+	<div id="taste" class="push_taste">l</div>
+	<div id="taste" class="push_taste">ö</div>
+	<div id="taste" class="push_taste">ä</div>
+	
+	<br clear="both"/>
+	
+	<div id="taste" class="push_taste">y</div>
+	<div id="taste" class="push_taste">x</div>
+	<div id="taste" class="push_taste">c</div>
+	<div id="taste" class="push_taste">v</div>
+	<div id="taste" class="push_taste">b</div>
+	<div id="taste" class="push_taste">n</div>
+	<div id="taste" class="push_taste">m</div>
+	
+	<div id="taste" class="push_taste">!</div>
+	<div id="taste" class="push_taste">?</div>
+	<div id="taste" class="push_taste">.</div>
+	
+	<br clear="both"/>
+	
+	<div id="taste" class="push_taste" style="width: 200px;"> </div>
+	
+</div>
+
+<script>
+
+console.log("ready");
+
+$(window).click(function() {
+  console.log("window clicked");
+  $("#tasten_div").hide("fast");
+});
+
+$("#text_input").on("click", function(event) {
+	console.log("text clicked");
+	$("#tasten_div").show("fast");
+	event.stopPropagation();
+});
+
+$input_val = "";
+
+$(".push_taste").on("click", function() {
+	console.log("taste pushed");
+	$input_val = $("#text_input").val();
+	$("#text_input").val($input_val + $(this).html());
+	$("#tasten_div").show("fast");
+	event.stopPropagation();
+});
+
+
+
+/*
+$("#text_input").on("input", function() {
+	console.log("typed");
+});*/
+
+
+
+</script>
